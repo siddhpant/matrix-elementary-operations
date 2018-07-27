@@ -1,5 +1,5 @@
 #include <iostream>
-#include <process.h>
+#include <stdlib.h>
 #include <string.h>
 #include "Show/help.h"
 #include "Show/matrix_display.h"
