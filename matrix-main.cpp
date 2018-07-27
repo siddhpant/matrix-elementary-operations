@@ -76,14 +76,14 @@ int main(int argc, char const *argv[]) {
     if (choice == 1) {
         row_operation(order, matrix, inverse);
     } else if (choice == 2) {
-        std::cout << '\a' << "COLUMN OPERATION CAN CHANGE THE LINEAR SYSTEM!"<< '\a' << '\n';
-        std::cout << "Proceed at your own risk" << '\n';
+        std::cout << '\n' << '\a' << "COLUMN OPERATION CAN CHANGE THE LINEAR SYSTEM!"<< '\a' << '\n';
+        std::cout << "Proceed at your own risk" << "\n\n";
         column_operation(order, matrix, inverse);
     } else {
         std::cout << "WRONG CHOICE! Exiting." << '\n';
         exit(0);
     }
 
-    std::cout << "Performed all elementary operations!" << '\n';
+    std::cout << '\n' << "Performed all elementary operations!" << std::endl;
     return 0;
 }

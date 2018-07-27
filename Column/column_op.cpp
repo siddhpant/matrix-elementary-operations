@@ -13,17 +13,13 @@ void column_operation(int ord, std::vector<std::vector<double> > column_matrix, 
 //Initializing elementary matrix.
 std::vector<std::vector<double> > elem_matrix(ord, std::vector<double> (ord, 0.0));
 for (size_t i = 0; i < ord; i++) {
-    for (size_t j = 0; j < ord; j++) {
-        if (i=j) {
-            elem_matrix[i][j] = 1.0;
-        }
-    }
+    elem_matrix[i][i] = 1.0;
 }
 
 int ch, c, m, o;    // choice, column, multiplier, other operand
 do {
     ch = c = m = 0;
-    std::cout << "Which operation?" << '\n';
+    std::cout << '\n' << "Which operation?" << '\n';
     std::cout << "\t 1. R[i] <--> R[j]" << '\n';
     std::cout << "\t 2. R[i] ---> k*R[i] " << '\n';
     std::cout << "\t 3. R[i] ---> R[i] + k*R[j]" << '\n';
@@ -35,6 +31,8 @@ do {
     switch (ch) {
         case 1: std::cout << "Enter the columns to interchange (Enter 1 2 to change 1 and 2): " << '\n';
                 std::cin >> c >> o;
+                --c;                  //Index starts with 0, but the matrix index starts with 1.
+                --o;
                 if ((ord < c) && (ord < o)){
                     std::cout << "Values greater than order of matrix (Out of range). Exiting." << '\n';
                     exit(0);
@@ -60,7 +58,7 @@ do {
                 std::cout << '\n' << "The modified matrix is:" << "\n\n";
                 show_matrix(ord, column_matrix);
                 if (inv == 1) {
-                    std::cout << '\n' << "The modified elementary matrix is:" << "\n\n";
+                    std::cout << "The modified elementary matrix is:" << "\n\n";
                     show_matrix(ord, elem_matrix);
                 }
 
@@ -69,6 +67,7 @@ do {
 
         case 2: std::cout << "Enter the column : " << '\n';
                 std::cin >> c;
+                --c;                    //Index starts with 0, but the matrix index starts with 1.
                 std::cout << "Enter the multiplier : " << '\n';
                 std::cin >> m;
 
@@ -87,7 +86,7 @@ do {
                 std::cout << '\n' << "The modified matrix is:" << "\n\n";
                 show_matrix(ord, column_matrix);
                 if (inv == 1) {
-                    std::cout << '\n' << "The modified elementary matrix is:" << "\n\n";
+                    std::cout << "The modified elementary matrix is:" << "\n\n";
                     show_matrix(ord, elem_matrix);
                 }
 
@@ -99,6 +98,8 @@ do {
                 std::cout << "Enter multiplier and the other operand column (seperated by space): " << '\n';
                 m = 1;       // By default, user can change by inputting.
                 std::cin >> m >> o;
+                --c;                    //Index starts with 0, but the matrix index starts with 1.
+                --o;
 
                 for (size_t i = 0; i < ord; i++) {
                     if (i==c) {
@@ -120,7 +121,7 @@ do {
                 std::cout << '\n' << "The modified matrix is:" << "\n\n";
                 show_matrix(ord, column_matrix);
                 if (inv == 1) {
-                    std::cout << '\n' << "The modified elementary matrix is:" << "\n\n";
+                    std::cout << "The modified elementary matrix is:" << "\n\n";
                     show_matrix(ord, elem_matrix);
                 }
 
@@ -132,6 +133,8 @@ do {
                 std::cout << "Enter multiplier and the other operand column (seperated by space): " << '\n';
                 m = 1;       // By default, user can change by inputting.
                 std::cin >> m >> o;
+                --c;                    //Index starts with 0, but the matrix index starts with 1.
+                --o;
 
                 for (size_t i = 0; i < ord; i++) {
                     if (i==c) {
@@ -153,7 +156,7 @@ do {
                 std::cout << '\n' << "The modified matrix is:" << "\n\n";
                 show_matrix(ord, column_matrix);
                 if (inv == 1) {
-                    std::cout << '\n' << "The modified elementary matrix is:" << "\n\n";
+                    std::cout << "The modified elementary matrix is:" << "\n\n";
                     show_matrix(ord, elem_matrix);
                 }
 
@@ -173,6 +176,6 @@ do {
 
     std::cout << "Do you want to continue? (y/n)" << '\n';
     std::cin >> ch;
-} while(ch == 121||89); // while(ch == 'y'||'Y');
+} while((ch == 121)||(ch == 89)); // while(ch == 'y'||'Y');
 
 }
