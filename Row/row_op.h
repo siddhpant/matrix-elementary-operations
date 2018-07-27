@@ -1,3 +1,3 @@
 #pragma once
 
-void row_operation(int ord, float Matrix[ord][ord], int inv);
+void row_operation(int ord, double row_matrix[ord][ord], int inv);
