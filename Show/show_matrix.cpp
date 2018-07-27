@@ -1,6 +1,7 @@
 #include <iostream>
+#include <vector>
 
-void show_matrix(int ord, float Matrix[ord][ord]) {
+void show_matrix(int ord, std::vector<std::vector<double> > Matrix) {
 
     for (size_t i = 0; i < ord; i++) {
         std::cout << '\n';

@@ -1,5 +1,6 @@
 #include <iostream>
 #include <utility>
+#include <vector>
 #include "../Show/show_matrix.h"
 
 
@@ -7,10 +8,10 @@
 ord = Order of square matrix.
 Matrix = The matrix of given order.
 */
-void column_operation(int ord, double column_matrix[ord][ord], int inv){
+void column_operation(int ord, std::vector<std::vector<double> > column_matrix, int inv){
 
 //Initializing elementary matrix.
-double elem_matrix[ord][ord] = {0.0};
+std::vector<std::vector<double> > elem_matrix(ord, std::vector<double> (ord, 0.0));
 for (size_t i = 0; i < ord; i++) {
     for (size_t j = 0; j < ord; j++) {
         if (i=j) {
@@ -34,7 +35,7 @@ do {
     switch (ch) {
         case 1: std::cout << "Enter the columns to interchange (Enter 1 2 to change 1 and 2): " << '\n';
                 std::cin >> c >> o;
-                if ((ord < c) && (ord < o){
+                if ((ord < c) && (ord < o)){
                     std::cout << "Values greater than order of matrix (Out of range). Exiting." << '\n';
                     exit(0);
                 }
@@ -44,9 +45,9 @@ do {
                         for (size_t j = 0; j < ord; j++) {
                             if (j==o) {
                                 for (size_t k = 0; k < ord; k++) {
-                                    std::swap(column_matrix[k][i], column_matrix[k][j]) //Swapping the columns of provided matrix.
+                                    std::swap(column_matrix[k][i], column_matrix[k][j]); //Swapping the columns of provided matrix.
                                     if (inv == 1) {
-                                        std::swap(elem_matrix[k][i], elem_matrix[k][j]) //Swapping the columns of elementary matrix.
+                                        std::swap(elem_matrix[k][i], elem_matrix[k][j]); //Swapping the columns of elementary matrix.
                                     }
                                 }
                             break;
@@ -57,10 +58,10 @@ do {
                 }
 
                 std::cout << '\n' << "The modified matrix is:" << "\n\n";
-                show_matrix(ord, column_Matrix);
+                show_matrix(ord, column_matrix);
                 if (inv == 1) {
                     std::cout << '\n' << "The modified elementary matrix is:" << "\n\n";
-                    show_matrix(ord, elem_matrix)
+                    show_matrix(ord, elem_matrix);
                 }
 
                 break;
@@ -84,7 +85,7 @@ do {
                 }
 
                 std::cout << '\n' << "The modified matrix is:" << "\n\n";
-                show_matrix(ord, column_Matrix);
+                show_matrix(ord, column_matrix);
                 if (inv == 1) {
                     std::cout << '\n' << "The modified elementary matrix is:" << "\n\n";
                     show_matrix(ord, elem_matrix);
@@ -117,7 +118,7 @@ do {
                 }
 
                 std::cout << '\n' << "The modified matrix is:" << "\n\n";
-                show_matrix(ord, column_Matrix);
+                show_matrix(ord, column_matrix);
                 if (inv == 1) {
                     std::cout << '\n' << "The modified elementary matrix is:" << "\n\n";
                     show_matrix(ord, elem_matrix);
@@ -127,7 +128,7 @@ do {
 
 
         case 4: std::cout << "Enter the column to be operated upon: " << '\n';
-                std::cin >> r;
+                std::cin >> c;
                 std::cout << "Enter multiplier and the other operand column (seperated by space): " << '\n';
                 m = 1;       // By default, user can change by inputting.
                 std::cin >> m >> o;
@@ -150,7 +151,7 @@ do {
                 }
 
                 std::cout << '\n' << "The modified matrix is:" << "\n\n";
-                show_matrix(ord, column_Matrix);
+                show_matrix(ord, column_matrix);
                 if (inv == 1) {
                     std::cout << '\n' << "The modified elementary matrix is:" << "\n\n";
                     show_matrix(ord, elem_matrix);

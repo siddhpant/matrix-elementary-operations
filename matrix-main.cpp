@@ -1,8 +1,9 @@
 #include <iostream>
 #include <stdlib.h>
 #include <string.h>
+#include <vector>
 #include "Show/help.h"
-#include "Show/matrix_display.h"
+#include "Show/show_matrix.h"
 #include "Row/row_op.h"
 #include "Column/column_op.h"
 
@@ -41,16 +42,19 @@ int main(int argc, char const *argv[]) {
         }
     }
 
-    // Creating a 2D matrix of given dimensions using a 2D array, and setting all values to 0.
-    double matrix[rows][columns] = {0};
+    // Creating a 2D matrix of given dimensions using a 2D vector (to be able to pass to a function), and setting all values to 0.
+    std::vector<std::vector<double> > matrix(order, std::vector<double> (order, 0.0));
 
     std::cout << "Enter the values of the matrix, values in a row (column values) seperated by a space, "
               << "then press enter (newline) to enter new row:" << '\n';
-    for (size_t i = 0; i < rows; i++) {
-        for (size_t j = 0; j < columns; j++) {
+    for (size_t i = 0; i < order; i++) {
+        for (size_t j = 0; j < order; j++) {
             std::cin >> matrix[i][j];
         }
     }
+
+    std::cout << '\n' << "Your provided matrix is:" << '\n';
+    show_matrix(order, matrix);
 
     int choice;
     std::cout << "What do you want to do?" << '\n';

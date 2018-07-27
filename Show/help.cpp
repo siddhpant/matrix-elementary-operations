@@ -1,3 +1,5 @@
+#include <iostream>
+
 void show_help(void) {
 
     std::cout << "This is a program to perform elementary matrix operations PROVIDED BY USER." << '\n';

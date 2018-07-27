@@ -1,3 +1,3 @@
 #pragma once
 
-void row_operation(int ord, double column_matrix[ord][ord], int inv);
+void column_operation(int ord, std::vector<std::vector<double> > column_matrix, int inv);

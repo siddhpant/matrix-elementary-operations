@@ -1,3 +1,3 @@
 #pragma once
 
-void row_operation(int ord, float Matrix[ord][ord]);
+void show_matrix(int ord, std::vector<std::vector<double> > Matrix);

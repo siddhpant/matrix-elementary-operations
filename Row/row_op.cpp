@@ -1,5 +1,6 @@
 #include <iostream>
 #include <utility>
+#include <vector>
 #include "../Show/show_matrix.h"
 
 
@@ -7,10 +8,10 @@
 ord = Order of square matrix.
 Matrix = The matrix of given order.
 */
-void row_operation(int ord, double row_matrix[ord][ord], int inv){
+void row_operation(int ord, std::vector<std::vector<double> > row_matrix, int inv){
 
 //Initializing elementary matrix.
-double elem_matrix[ord][ord] = {0.0};
+std::vector<std::vector<double> > elem_matrix(ord, std::vector<double> (ord, 0.0));
 for (size_t i = 0; i < ord; i++) {
     for (size_t j = 0; j < ord; j++) {
         if (i=j) {
@@ -34,7 +35,7 @@ do {
     switch (ch) {
         case 1: std::cout << "Enter the rows to interchange (Enter 1 2 to change 1 and 2): " << '\n';
                 std::cin >> r >> o;
-                if ((ord < r) && (ord < o){
+                if ((ord < r) && (ord < o)){
                     std::cout << "Values greater than order of matrix (Out of range). Exiting." << '\n';
                     exit(0);
                 }
@@ -44,9 +45,9 @@ do {
                         for (size_t j = 0; j < ord; j++) {
                             if ((i==r) && (j==o)){
                                 for (size_t k = 0; k < ord; k++) {
-                                    std::swap(row_matrix[i][k], row_matrix[j][k]) //Swapping the rows of provided matrix.
+                                    std::swap(row_matrix[i][k], row_matrix[j][k]); //Swapping the rows of provided matrix.
                                     if (inv == 1) {
-                                        std::swap(elem_matrix[i][k], elem_matrix[j][k]) //Swapping the rows of elementary matrix.
+                                        std::swap(elem_matrix[i][k], elem_matrix[j][k]); //Swapping the rows of elementary matrix.
                                     }
                                 }
                                 break;
@@ -57,10 +58,10 @@ do {
                 }
 
                 std::cout << '\n' << "The modified matrix is:" << "\n\n";
-                show_matrix(ord, row_Matrix);
+                show_matrix(ord, row_matrix);
                 if (inv == 1) {
                     std::cout << '\n' << "The modified elementary matrix is:" << "\n\n";
-                    show_matrix(ord, elem_matrix)
+                    show_matrix(ord, elem_matrix);
                 }
 
                 break;
@@ -84,7 +85,7 @@ do {
                 }
 
                 std::cout << '\n' << "The modified matrix is:" << "\n\n";
-                show_matrix(ord, row_Matrix);
+                show_matrix(ord, row_matrix);
                 if (inv == 1) {
                     std::cout << '\n' << "The modified elementary matrix is:" << "\n\n";
                     show_matrix(ord, elem_matrix);
@@ -117,7 +118,7 @@ do {
                 }
 
                 std::cout << '\n' << "The modified matrix is:" << "\n\n";
-                show_matrix(ord, row_Matrix);
+                show_matrix(ord, row_matrix);
                 if (inv == 1) {
                     std::cout << '\n' << "The modified elementary matrix is:" << "\n\n";
                     show_matrix(ord, elem_matrix);
@@ -150,7 +151,7 @@ do {
                 }
 
                 std::cout << '\n' << "The modified matrix is:" << "\n\n";
-                show_matrix(ord, row_Matrix);
+                show_matrix(ord, row_matrix);
                 if (inv == 1) {
                     std::cout << '\n' << "The modified elementary matrix is:" << "\n\n";
                     show_matrix(ord, elem_matrix);
