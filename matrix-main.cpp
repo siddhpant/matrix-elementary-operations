@@ -14,7 +14,7 @@ int main(int argc, char const *argv[]) {
     std::cout << "------------------------------" << '\n';
     std::cout << '\n' << "Run with -h to show help." << "\n\n";
 
-    if ( strcmp(argv[1], "-h") == 0 ) {
+    if ((argc > 1) && (strcmp(argv[1], "-h")) == 0 ) {
         show_help();
         exit(0);
     }
