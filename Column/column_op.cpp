@@ -31,12 +31,12 @@ do {
     switch (ch) {
         case 1: std::cout << "Enter the columns to interchange (Enter 1 2 to change 1 and 2): " << '\n';
                 std::cin >> c >> o;
-                --c;                  //Index starts with 0, but the matrix index starts with 1.
-                --o;
                 if ((ord < c) && (ord < o)){
                     std::cout << "Values greater than order of matrix (Out of range). Exiting." << '\n';
-                    exit(0);
+                    break;
                 }
+                --c;                  //Index starts with 0, but the matrix index starts with 1.
+                --o;
 
                 for (size_t i = 0; i < ord; i++) {
                     if (i==c) {
@@ -67,6 +67,10 @@ do {
 
         case 2: std::cout << "Enter the column : " << '\n';
                 std::cin >> c;
+                if (ord < c){
+                    std::cout << "Values greater than order of matrix (Out of range). Exiting." << '\n';
+                    break;
+                }
                 --c;                    //Index starts with 0, but the matrix index starts with 1.
                 std::cout << "Enter the multiplier : " << '\n';
                 std::cin >> m;
@@ -98,6 +102,10 @@ do {
                 std::cout << "Enter multiplier and the other operand column (seperated by space): " << '\n';
                 m = 1;       // By default, user can change by inputting.
                 std::cin >> m >> o;
+                if ((ord < c) && (ord < o)){
+                    std::cout << "Values greater than order of matrix (Out of range). Exiting." << '\n';
+                    break;
+                }
                 --c;                    //Index starts with 0, but the matrix index starts with 1.
                 --o;
 
@@ -133,6 +141,10 @@ do {
                 std::cout << "Enter multiplier and the other operand column (seperated by space): " << '\n';
                 m = 1;       // By default, user can change by inputting.
                 std::cin >> m >> o;
+                if ((ord < c) && (ord < o)){
+                    std::cout << "Values greater than order of matrix (Out of range). Exiting." << '\n';
+                    break;
+                }
                 --c;                    //Index starts with 0, but the matrix index starts with 1.
                 --o;
 
