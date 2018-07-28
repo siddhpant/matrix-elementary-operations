@@ -64,7 +64,7 @@ int main(int argc, char const *argv[]) {
     std::cin >> choice;
 
     char yn;
-    std::cout << "\n" << "You can apply same operations to a elementary matrix if you want to find inverse." << '\n';
+    std::cout << "\n" << "You can apply same operations to an elementary matrix if you want to find inverse." << '\n';
     std::cout << "Do you want to find inverse? (y/n)" << '\n';
     std::cin >> yn;
 
