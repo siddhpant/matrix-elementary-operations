@@ -31,8 +31,8 @@ int main(int argc, char const *argv[]) {
             exit(0);
         }
     }
-    else if (order > 50 || order > 100) {
-        std::cout << "Order is insanely large. Program might not handle it properly." << '\n';
+    else if (order > 50) {
+        std::cout << "Order is insanely large. Don't get surprised if something happens." << '\n';
         std::cout << "Do you really want to continue? (y/n) (Spoiler alert : Type n)" << '\n';
         char ord_conf;
         std::cin >> ord_conf;
