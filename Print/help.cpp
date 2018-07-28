@@ -10,8 +10,9 @@ void show_help(void) {
               << "cross check your own steps." << "\n\n";
 
     std::cout << "The program also outputs all the row operations "
-              << "along with the matrix formed to a text file \" Matrix-[TIME].txt \" for "
-              << "easy future reference. (TIME is unix time.)" << "\n\n";
+              << "along with the matrix formed to a text file \" Matrix [YY/MM/DD] [HH:MM:SS].txt \" for "
+              << "easy future reference. (Current date and time (UTC) in file name.)" << '\n'
+              << "If you are on Windows, the colon in time might look like a bullet point." << "\n\n";
 
     std::cout << "Since doing elementary operations on a rectangular matrix is meaningless, "
               << "the program just asks for the order of the square matrix "

@@ -2,8 +2,8 @@
 #include <stdlib.h>
 #include <string.h>
 #include <vector>
-#include "Show/help.h"
-#include "Show/show_matrix.h"
+#include "Print/help.h"
+#include "Print/print_matrix.h"
 #include "Row/row_op.h"
 #include "Column/column_op.h"
 
@@ -54,7 +54,7 @@ int main(int argc, char const *argv[]) {
     }
 
     std::cout << '\n' << "Your provided matrix is:" << '\n';
-    show_matrix(order, matrix);
+    print_matrix(order, matrix);
 
     int choice;
     std::cout << "What do you want to do?" << '\n';
