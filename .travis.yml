@@ -5,4 +5,4 @@ matrix:
   include :
     - os: linux
       compiler: gcc
-      script: g++ Print/help.cpp Print/print_matrix.cpp Row/row_op.cpp Column/column_op.cpp matrix-main.cpp
+      script: g++ -std=c++0x Print/help.cpp Print/print_matrix.cpp Row/row_op.cpp Column/column_op.cpp matrix-main.cpp
