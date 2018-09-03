@@ -5,4 +5,5 @@ matrix:
   include :
     - os: linux
       compiler: gcc
+      build: Print/help.cpp Print/print_matrix.cpp Row/row_op.cpp Column/column_op.cpp matrix-main.cpp -o m
       env: AUTOTOOLS=no COVERAGE=yes BUILD=static
