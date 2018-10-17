@@ -12,8 +12,8 @@ matrix:
       
       install:
           - sudo apt-get install -qq cppcheck
-          - sudo apt-get install -qq g++-6
-          - sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-6 90
+          - sudo apt-get install -qq g++-8
+          - sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-8 90
 
       script: 
           - g++ -std=c++1y Print/help.cpp Print/print_matrix.cpp Row/row_op.cpp Column/column_op.cpp matrix-main.cpp -o matrix_elementary_operations
