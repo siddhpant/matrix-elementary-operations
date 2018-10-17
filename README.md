@@ -9,7 +9,7 @@ Users can also perform the same on an elementary matrix if they want. Particular
 
 ## Compilation [![Build Status](https://travis-ci.com/siddhpant/matrix-elementary-operations.svg?branch=master)](https://travis-ci.com/siddhpant/matrix-elementary-operations)
 
-```g++ -std=c++0x Print/help.cpp Print/print_matrix.cpp Row/row_op.cpp Column/column_op.cpp matrix-main.cpp -o matrix_elementary_operations```
+```g++ -std=c++1y Print/help.cpp Print/print_matrix.cpp Row/row_op.cpp Column/column_op.cpp matrix-main.cpp -o matrix_elementary_operations```
 
 (C++0x because of the date time library used.)
 
