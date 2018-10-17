@@ -5,8 +5,16 @@ matrix:
   include :
     - os: linux
       compiler: gcc
+      
+      before_install:
+          - sudo add-apt-repository -y ppa:ubuntu-toolchain-r/test
+          - sudo apt-get update -qq
+      
       install:
           - sudo apt-get install -qq cppcheck
+          - sudo apt-get install -qq g++-6
+          - sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-6 90
+
       script: 
           - g++ -std=c++1y Print/help.cpp Print/print_matrix.cpp Row/row_op.cpp Column/column_op.cpp matrix-main.cpp -o matrix_elementary_operations
           - ./matrix_elementary_operations -h
