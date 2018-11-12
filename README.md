@@ -11,7 +11,7 @@ Users can also perform the same on an elementary matrix if they want. Particular
 
 ```g++ -std=c++14 Print/help.cpp Print/print_matrix.cpp Row/row_op.cpp Column/column_op.cpp matrix-main.cpp -o matrix_elementary_operations```
 
-(C++14 because of the date-time library used.)
+(C++14 because of the date-time library used. The codebase itself is compatible with C++17.)
 
 ## Use
 
